@@ -1,0 +1,55 @@
+﻿<Window x:Class="IndividualProject4268.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IndividualProject4268"
+        mc:Ignorable="d"
+        Title="Student Data Collection" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowVM/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Width="200" Height="430" 
+                    HorizontalAlignment="left"
+                    Background="LightGreen"  Orientation="Vertical">
+            <Button Content="Add New Student" Command="{Binding AddStudentCommand}"   Width="180" Height="50" Margin=" -4 -50 5 -300" FontSize="20" Background="skyblue"/>
+            <Button Content="Edit Student" Command="{Binding ExecuteEditStudentCommandCommand}"   Width="180" Height="50" Margin=" -4 100  5 -300" FontSize="20" Background="skyblue"/>
+            <Button Content="Delete Student" Command="{Binding DeleteCommand}"   Width="180" Height="50" Margin=" -4 250  5 -300" FontSize="20" Background="skyblue"/>
+        </StackPanel>
+
+        <StackPanel Height="420" Width="590" Background="pink" HorizontalAlignment="right" Orientation="Vertical" Margin="0 0 5 0">
+            <StackPanel  Margin="170 0 160 0">
+                <TextBlock Text="LIST OF STUDENTS" FontSize="30" FontStyle="Italic" Margin="0" Width="450" />
+            </StackPanel>
+            
+            <StackPanel Margin=" 10 0 0 0"  HorizontalAlignment="Right" Width="600" Height="50"  Background="Transparent" Orientation="Horizontal">
+                <TextBlock Text="First Name"     Foreground="DarkBlue"  Margin="60 17 5 4"   FontSize="15" Height="30" Width="90" />
+                <TextBlock Text="Last Name"      Foreground="DarkBlue"  Margin="20 17 5 4"   FontSize="15" Height="30" Width="90" />
+                <TextBlock Text="Age"            Foreground="DarkBlue"  Margin="20 17 5 4"   FontSize="15" Height="30" Width="90"/>
+                <TextBlock Text="Data Of Birth"  Foreground="DarkBlue"  Margin="-20 17 10 4" FontSize="15" Height="30" Width="90" />
+                <TextBlock Text="GPA"            Foreground="DarkBlue"  Margin="35 17 5 4"   FontSize="15" Height="30" Width="60" />
+            </StackPanel>
+        </StackPanel>
+
+        <ListView x:Name="Listview"  Margin="200 70 0 0" Background="Transparent" Width="550" Height="300" ItemsSource="{Binding Users,UpdateSourceTrigger=PropertyChanged}"
+                     SelectedItem="{Binding SelectedUser,UpdateSourceTrigger=PropertyChanged}" SelectionChanged="Listview_SelectionChanged">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Transparent" BorderBrush="DarkOrange" BorderThickness="1" Padding="0.1" CornerRadius="10" Width="530" Height="35">
+                        <StackPanel  Width="570"  Background="Transparent" Orientation="Horizontal">
+                            <Image Width="30" Height="30" Margin="0 0 0 0" Source="{Binding Image}" />
+                            <TextBlock Text="{Binding FirstName,UpdateSourceTrigger=PropertyChanged}"  Margin="9 10 100 4" />
+                            <TextBlock Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged}"  Margin="-30 10 100 4" />
+                            <TextBlock Text="{Binding Age,UpdateSourceTrigger=PropertyChanged}" Margin="-20 10 100 4" />
+                            <TextBlock Text="{Binding DateOfBirth,UpdateSourceTrigger=PropertyChanged}"  Margin="-30 10 100 4" />
+                            <TextBlock Text="{Binding GPA,UpdateSourceTrigger=PropertyChanged}" Margin="-35 10 100 4" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </Grid>
+</Window>

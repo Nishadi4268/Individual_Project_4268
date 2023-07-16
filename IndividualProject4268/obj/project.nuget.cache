@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wMPbJOE/bEy4lm5EXFk5miT0dYOek5HSwK8o0HsBJg8aNtPDcTBZZXFjPAKT74XSNNmxN8gNYHkKHRleH5yHVQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\my pc\\Desktop\\WPF Project\\IndividualProject4268\\IndividualProject4268\\IndividualProject4268.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\my pc\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0\\communitytoolkit.mvvm.8.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
